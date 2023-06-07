@@ -1,0 +1,30 @@
+<%- include("header") -%>
+    
+
+   
+
+
+
+
+<div class="box" id="heading">
+  <h1>All List</h1>
+</div>
+
+<div class="box">
+    <p><a class="all" href="/">Today</a></p>
+  <% tasks.forEach(function(tasks){ %>
+    <form action="/deleteCustomList" method="post">
+ 
+    <div class="item">
+        <input type="checkbox" name="checkbox" value=<%= tasks._id %>  onChange="this.form.submit()">
+      
+      <p><a id="asdf" href="/lists/<%= tasks.name %>" ><%= tasks.name %></a></p>
+    </div>
+    <input type="hidden" name="listName" value="<%= tasks.name %>"></input>
+</form>
+   
+  <% }) %>
+
+
+
+  <%- include("footer") -%>
